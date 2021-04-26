@@ -29,7 +29,7 @@ def GetMovie(request,pk):
 
     return Response(serializer.data)
 
-@api_view(['POST'])
+@api_view(['PUT'])
 def PostMovie(request):
     serializer = MovieSerializer(data=request.data)
 
@@ -38,7 +38,7 @@ def PostMovie(request):
 
     return Response(serializer.data)
 
-@api_view(['POST'])
+@api_view(['PUT'])
 def UpdateMovie(request, pk):
     movie = Movie.objects.get(id=pk)
     print(movie)
