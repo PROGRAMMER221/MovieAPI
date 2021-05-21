@@ -47,7 +47,14 @@ def UpdateMovie(request, pk):
     if serializer.is_valid():
         print('SAVING')
         serializer.save()
-    else: 
+    else:
         print('NO SAVING')
 
     return Response(serializer.data)
+
+@api_view(['DELETE'])
+def DeleteMovie(render,pk):
+    movie = Movie.objects.get(id=pk)
+    movie.delete()
+
+    return Response('Movie Deleted')
